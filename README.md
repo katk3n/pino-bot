@@ -20,13 +20,13 @@ In local environment, you can use [Azurite](https://learn.microsoft.com/ja-jp/az
 #### Install Azurite
 
 ```
-$ npm install -g azurite
+npm install -g azurite
 ```
 
 ### Run Azurite
 
 ```
-$ azurite --silent
+azurite --silent --location ~/var/azurite --debug ~/var/azurite/debug.log
 ```
 
 ### Setting for using Azurite
