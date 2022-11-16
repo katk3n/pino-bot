@@ -1,5 +1,7 @@
 # pino-bot
 
+![pino-bot](pino-bot.png)
+
 pino-bot is a LINE bot that communicates with simple text messages.
 The name "pino" derives from the name of my friends' cat.
 
