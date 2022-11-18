@@ -12,7 +12,7 @@ const queueTrigger: AzureFunction = async (context: Context, eventItem: string):
   if (event.type === 'message' && event.message.type === 'text') {
     const message: Message = {
       type: 'text',
-      text: `${event.message.text}にゃにゃにゃ`,
+      text: `${event.message.text}にゃ！`,
     };
     if (event.replyToken) {
       client.replyMessage(event.replyToken, message);
@@ -20,7 +20,7 @@ const queueTrigger: AzureFunction = async (context: Context, eventItem: string):
       context.log('this event does not have replyToken');
     }
   } else {
-    context.log('wrong event type:', event.type);
+    context.log('this event type is not supported:', event.type);
   }
 };
 
