@@ -9,6 +9,7 @@ const timerTrigger: AzureFunction = async (context: Context, myTimer: any): Prom
 
   if (myTimer.isPastDue) {
     context.log('Timer function is running late!');
+    return;
   }
   client.broadcast({
     type: 'text',
