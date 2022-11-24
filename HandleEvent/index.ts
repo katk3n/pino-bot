@@ -9,19 +9,25 @@ const queueTrigger: AzureFunction = async (context: Context, eventItem: string):
   });
 
   const event = context.bindings.eventItem;
-  if (event.type === 'message' && event.message.type === 'text') {
-    const message: Message = {
-      type: 'text',
-      text: `${event.message.text}にゃ！`,
-    };
-    if (event.replyToken) {
-      client.replyMessage(event.replyToken, message);
-    } else {
-      context.log('this event does not have replyToken');
-    }
-  } else {
+  if (event.type !== 'message') {
     context.log('this event type is not supported:', event.type);
+    return;
   }
+  if (event.message.type !== 'text') {
+    context.log('this message type is not supported:', event.message.type);
+    return;
+  }
+  if (!event.replyToken) {
+    context.log('this event does not have replyToken');
+    return;
+  }
+
+  const message: Message = {
+    type: 'text',
+    text: `${event.message.text}にゃ！`,
+  };
+
+  client.replyMessage(event.replyToken, message);
 };
 
 export default queueTrigger;
