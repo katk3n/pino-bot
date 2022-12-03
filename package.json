@@ -12,6 +12,7 @@
     "format": "eslint . --cache --fix --ext '.{js,jsx,ts,tsx}' && prettier . --write --ext '.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
+    "@azure/ai-language-text": "^1.0.0",
     "@azure/functions": "^3.0.0",
     "@line/bot-sdk": "^7.5.2"
   },
